@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Технология разработки ПО </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container">
+      <h3 class="text-center">Успеваемость студентов по дисциплине "Технология разработки ПО"</h3>
+  </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            {% for object in object_list %}
+            <div class="well">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <input class="form-control" value="{{ object.name }}" disabled>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="progress">
+                            <div class="progress-bar" style="width: {{ object.rating }}%">
+                                <span>{{ object.rating }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script>
+$('.progress-bar').each(function( index ) {
+  if (parseInt($( this ).text()) < 40) {
+      $( this ).addClass('progress-bar-danger')
+  } else if (parseInt($( this ).text()) < 60){
+      $( this ).addClass('progress-bar-warning')
+  } else {
+      $( this ).addClass('progress-bar-success')
+  }
+});
+</script>
+</body>
+</html>
