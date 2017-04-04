@@ -90,3 +90,6 @@ ENV/
 
 #configuration
 *conf.txt
+
+#static
+*static*
