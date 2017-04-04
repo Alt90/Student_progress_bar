@@ -92,4 +92,4 @@ ENV/
 *conf.txt
 
 #static
-*static*
+/admin/*
