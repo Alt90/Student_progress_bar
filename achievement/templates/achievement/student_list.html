@@ -9,6 +9,12 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <style type="text/css">
+        .progress {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -22,9 +28,16 @@
             {% for object in object_list %}
             <div class="well">
                 <div class="row">
-                    <div class="col-xs-6">
+                    <div class="{% if user.is_authenticated %}col-xs-4{% else %}col-xs-6{% endif %}">
                         <input class="form-control" value="{{ object.name }}" disabled>
                     </div>
+                    {% if user.is_authenticated %}
+                    <div class="col-xs-1">
+                        <a href="/raiting_reduce/{{ object.id }}" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </a>
+                    </div>
+                    {% endif %}
                     <div class="col-xs-6">
                         <div class="progress">
                             <div class="progress-bar" style="width: {{ object.rating }}%">
@@ -32,6 +45,13 @@
                             </div>
                         </div>
                     </div>
+                    {% if user.is_authenticated %}
+                    <div class="col-xs-1">
+                        <a href="/raiting_add/{{ object.id }}" class="btn btn-success">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}
