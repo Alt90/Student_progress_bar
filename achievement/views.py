@@ -16,6 +16,7 @@ def raiting_add(request, student_id):
             student.save()
     return redirect('/')
 
+
 def raiting_reduce(request, student_id):
     if request.user.is_authenticated:
         student = get_object_or_404(models.Student, pk=student_id)
