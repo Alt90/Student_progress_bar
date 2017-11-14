@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'achievement',
+    'quiz',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'progress_bar.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
