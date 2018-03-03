@@ -11,5 +11,6 @@
     export DB_user=*something*
     export DB_password=*something*
     export SECRET_KEY=*something*
+    export HOST=localhost          # Для деплоя использовать реальный DNS 
     python manage.py migrate
     python manage.py runserver
